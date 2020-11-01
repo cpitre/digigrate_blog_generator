@@ -300,3 +300,113 @@ git commit -m "initial digigrate blog (Hexo)  generator contents"
  create mode 100644 themes/landscape/source/fancybox/jquery.fancybox.pack.js
  create mode 100644 themes/landscape/source/js/script.js
 ```
+
+### Add and commit this file (./README.md) into the git workpsace/local repository:
+```
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+$ git add README.md
+
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   README.md
+
+$ git commit -m "added local Hexo blog generator content and Git source control steps"
+[master ad48f24] added local Hexo blog generator content and Git source control steps
+ 1 file changed, 302 insertions(+)
+ create mode 100644 README.md
+```
+
+### Run Hexo's local web server to check out the created default blog site:
+```
+$ hexo server
+INFO  Validating config
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
+(node:7162) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7162) Warning: Accessing non-existent property 'column' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'column' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency
+```
+
+### Check for any changes (created by the running of the local Hexo web server) in the local git workspace:
+```
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   package.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+$ git diff
+diff --git a/package.json b/package.json
+index 95866f9..9b85040 100644
+--- a/package.json
++++ b/package.json
+@@ -9,7 +9,7 @@
+     "server": "hexo server"
+   },
+   "hexo": {
+-    "version": ""
++    "version": "5.2.0"
+   },
+   "dependencies": {
+     "hexo": "^5.0.0",
+@@ -22,4 +22,4 @@
+     "hexo-renderer-stylus": "^2.0.0",
+     "hexo-server": "^2.0.0"
+   }
+-}
++}
+\ No newline at end of file
+
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   package.json
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+### Add and commit the changed file(s) (./package.json) into the git workpsace/local repository:
+```
+$ git add package.json
+
+$ git commit -m "package.json file change after the initial 'hexo server' command"
+[master 943a657] package.json file change after the initial 'hexo server' command
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+```
+
+### Stop Hexo's local web server (use the CTRL + C keys):
+```
+INFO  Validating config
+INFO  Start processing
+INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
+(node:7162) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:7162) Warning: Accessing non-existent property 'column' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'lineno' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'column' of module exports inside circular dependency
+(node:7162) Warning: Accessing non-existent property 'filename' of module exports inside circular dependency
+^CINFO  Catch you later
+```
